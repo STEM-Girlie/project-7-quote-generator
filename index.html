@@ -20,16 +20,18 @@ Tweet</button>
     </div>
     <script>
        <script>
-  const quote = document.getElementById("quote");
+  const quote = document.getElementById("content");
   const author = document.getElementById("author");
-  const api_url = "https://dummyjson.com/quotes/random";
+  const api_url = "https://api.quotable.io/random?maxLength=120";
+
 
   async function getquote(url) {
     const response = await fetch(url);
     const data = await response.json();
 
-    quote.innerHTML = data.quote;
-    author.innerHTML = data.author;
+   quote.innerHTML = data.content;
+   author.innerHTML = data.author;
+
   }
 
   getquote(api_url);
@@ -37,7 +39,7 @@ Tweet</button>
   function tweet() {
     window.open(
       "https://x.com/intent/tweet?text=" +
-        quote.innerHTML +
+        content.innerHTML +
         " ----- by " +
         author.innerHTML,
       "Tweet Window",
