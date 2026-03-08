@@ -1,3 +1,4 @@
+console.log("Script loaded!");
 
       const quote = document.getElementById("quote");
       const author = document.getElementById("author");
